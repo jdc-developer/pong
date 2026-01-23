@@ -18,8 +18,8 @@ public class Match {
     private static int enemyPoints;
 
     public Match() {
-        //Sound.menu.stop();
-        //Sound.match.loop();
+        Sound.menu.stop();
+        Sound.match.loop();
         player = new Player(0, PongGame.HEIGHT / 2);
         enemy = new Enemy(PongGame.WIDTH - 5, PongGame.HEIGHT / 2);
         ball = new Ball(enemy, player);
