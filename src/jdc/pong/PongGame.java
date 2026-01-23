@@ -39,7 +39,7 @@ public class PongGame extends Canvas implements Runnable {
     }
 
     public static void main(String[] args) {
-        Sound.menu.play();
+        //Sound.menu.play();
         instance = new PongGame();
         JFrame frame = new JFrame("Pong");
         frame.setResizable(false);
