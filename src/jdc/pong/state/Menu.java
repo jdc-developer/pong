@@ -14,6 +14,7 @@ public class Menu {
     private boolean up, down, enter;
 
     public void tick() {
+
         if (up) {
             up = false;
             currentOption--;

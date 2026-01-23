@@ -1,6 +1,7 @@
 package jdc.pong;
 
 import jdc.pong.commands.KeyboardCommands;
+import jdc.pong.sound.Sound;
 import jdc.pong.state.GameState;
 import jdc.pong.state.Match;
 import jdc.pong.state.Menu;
@@ -36,6 +37,7 @@ public class PongGame extends Canvas implements Runnable {
     }
 
     public static void main(String[] args) {
+        Sound.menu.play();
         instance = new PongGame();
         JFrame frame = new JFrame("Pong");
         frame.setResizable(false);
@@ -44,7 +46,9 @@ public class PongGame extends Canvas implements Runnable {
         frame.pack();
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
+
         new Thread(instance).start();
+
     }
 
     public void tick() {
@@ -79,6 +83,7 @@ public class PongGame extends Canvas implements Runnable {
 
     @Override
     public void run() {
+        requestFocus();
         while(true) {
             tick();
             render();
