@@ -4,7 +4,6 @@ import jdc.pong.PongGame;
 import jdc.pong.sound.Sound;
 
 import java.awt.*;
-import java.util.Random;
 
 public class Ball {
 
@@ -37,14 +36,14 @@ public class Ball {
 
         if (bounds.intersects(boundsPlayer)) {
             Sound.hitEff.play();
-            int angle = new Random().nextInt(50);
+            int angle = PongGame.random.nextInt(50);
             dx = Math.cos(Math.toRadians(angle));
             dy = Math.sin(Math.toRadians(angle));
             if (dx < 0) dx *= -1;
         }
         else if (bounds.intersects(boundsEnemy)) {
             Sound.hitEff.play();
-            int angle = new Random().nextInt(50);
+            int angle = PongGame.random.nextInt(50);
             dx = Math.cos(Math.toRadians(angle));
             dy = Math.sin(Math.toRadians(angle));
             if (dx > 0) dx *= -1;
@@ -60,12 +59,17 @@ public class Ball {
     }
 
     public void reset() {
-        int angle = new Random().nextInt((120 - 45) + 46);
-        int angle2 = new Random().nextInt(360);
+        int random = PongGame.random.nextInt(50);
+
+        System.out.println(random);
+
+        if (random <= 25) dx = Math.cos(0);
+        else dx = Math.sin(250);
+
         x = PongGame.WIDTH / 2;
         y = PongGame.HEIGHT / 2;
-        dx = Math.cos(angle);
-        dy = Math.sin(angle2);
+
+        dy = Math.sin(0);
     }
 
     public double getX() {
@@ -98,5 +102,13 @@ public class Ball {
 
     public void setHeight(int height) {
         this.height = height;
+    }
+
+    public double getDx() {
+        return dx;
+    }
+
+    public double getDy() {
+        return dy;
     }
 }

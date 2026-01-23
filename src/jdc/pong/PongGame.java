@@ -10,6 +10,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
+import java.util.Random;
 
 public class PongGame extends Canvas implements Runnable {
 
@@ -18,6 +19,7 @@ public class PongGame extends Canvas implements Runnable {
     public static final int SCALE = 3;
 
     public static GameState GAME_STATE = GameState.MENU;
+    public static Random random = new Random();
 
     private static PongGame instance = null;
     private BufferedImage layer = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
